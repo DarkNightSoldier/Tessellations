@@ -1,14 +1,14 @@
 class Board{
     protected String type;
-    protected int cellX;
-    protected int cellY;
+    protected int nCellsX;
+    protected int nCellsY;
     protected byte[][] matrixBoard;
     protected Polyform figure;
 
-    public Board(int cellX, int cellY){
-        this.cellX = cellX;
-        this.cellY = cellY;
-        matrixBoard = new byte[cellY][cellX];
+    public Board(int nCellsX, int nCellsY){
+        this.nCellsX = nCellsX;
+        this.nCellsY = nCellsY;
+        matrixBoard = new byte[nCellsY][nCellsX];
     }
     
     //Verify if a movement into the board is possible

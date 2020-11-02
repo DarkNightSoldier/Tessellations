@@ -2,7 +2,7 @@ class Polyform{
   protected int cellX;
   protected int cellY;
   protected String configuration;
-  private char[][] figureArray;
+  public char[][] figureArray;
   protected char[][] previewArray;
   protected boolean isDropping;
   
