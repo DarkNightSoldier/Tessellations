@@ -15,10 +15,12 @@ class Board{
     protected boolean verifyPositions(ArrayList<Integer>[]positionArray){
       boolean correctMovement=true;
       for(int pos=0;pos<positionArray[0].size();pos++){
-        if(matrixBoard[positionArray[1].get(pos)][positionArray[0].get(pos)]!=0){
-          correctMovement=false;
-          break;
-        }
+        if((0<=positionArray[0].get(pos) & positionArray[0].get(pos)<=nCellsX)|(0<=positionArray[1].get(pos) & positionArray[1].get(pos)<=nCellsY){
+          if(matrixBoard[positionArray[1].get(pos)][positionArray[0].get(pos)]!=0){
+            correctMovement=false;
+            break;
+          }
+        }  
       } 
       return correctMovement;
     }
