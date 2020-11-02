@@ -3,33 +3,23 @@ class Board{
     protected int cellX;
     protected int cellY;
     protected byte[][] matrixBoard;
+    protected Polyform figure;
 
-    public Board(String type, int cellX, int cellY){
-        this.type = type;
+    public Board(int cellX, int cellY){
         this.cellX = cellX;
         this.cellY = cellY;
-        initializeBoard();
+        matrixBoard = new byte[cellY][cellX];
     }
-
-    private void initializeBoard(){
-        byte[][] matrixBoard = new byte[cellY][cellX];
-    }
-
-    public void drawBoard(){
-      fill(255);
-      rect(0,0,900,650);
-      noFill();
-        for(int i=0;i<=cellY;i++){
-            if(i%2==0){
-                for(int x=0;x<=450;x+=72){
-                    hexagon(36+x,500-i*20,24);
-                }
-            }
-            else{
-                for(int x=0;x<=450;x+=72){
-                    hexagon(0+x,500-i*20,24);
-                }
-            }
+    
+    //Verify if a movement into the board is possible
+    protected boolean verifyPositions(ArrayList<Integer>[]positionArray){
+      boolean correctMovement=true;
+      for(int pos=0;pos<positionArray[0].size();pos++){
+        if(matrixBoard[positionArray[1].get(pos)][positionArray[0].get(pos)]!=0){
+          correctMovement=false;
+          break;
         }
+      } 
+      return correctMovement;
     }
 }
