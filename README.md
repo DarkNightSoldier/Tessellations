@@ -1,2 +1,2 @@
-# Hexagons
-Tile matching game with Hexagons.
+# Tesellations
+Tile matching game with Polyforms.
