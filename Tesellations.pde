@@ -13,15 +13,17 @@ int [][] T = {{},{15,4369,15,4369},
               {114,610,39,562}};
 PImage img;
 boolean stateGame = false;
-
+int mode;
 
 void settings(){
-   size(900,650);
+  size(900,650);  
 }
 
 void setup(){
+  surface.setResizable(true);
   img = loadImage("background.jpg");
-  setup2048SQ();
+   setup2048SQ();
+  mode = 0;
 }
 
 /**
@@ -37,7 +39,7 @@ public void draw(){
 }*/
 
 public void draw(){
-  launch2048SQ();
+   MainMenu();
 }
 
 void drawPolyhex(){
