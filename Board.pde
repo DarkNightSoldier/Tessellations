@@ -41,10 +41,10 @@ class Board{
       }
     }
     
-  public void dropbyColumn(){
+  public void dropByColumn(){
     byte temp;
     for (int col = 0; col<matrixBoard[0].length;col++){
-      for (int row = nCellsX-1; row>0; row--){
+      for (int row = nCellsY-1; row>0; row--){
         if(matrixBoard[row][col]==0){
           temp = matrixBoard[row-1][col];
           matrixBoard[row][col] = temp;

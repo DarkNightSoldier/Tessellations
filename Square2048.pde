@@ -1,14 +1,15 @@
 void setup2048SQ(){
-  board = new SquareBoard(10,16,6);
+  board = new SquareBoard(10,16,5);
   board.randomFillBoard();
 }
 
 void launch2048SQ(){
-  board.randomFillBoard();
   board.drawBoard();
   if(mousePressed){
     check2048SQ(mouseX,mouseY);
   }
+  board.dropByColumn();
+  board.randomFillBoard();
 }
 
 void check2048SQ(int mouseX,int mouseY){
@@ -39,8 +40,8 @@ void check2048SQ(int mouseX,int mouseY){
   actualValue = value;
   cellX = mouseX/40;
   cellY = mouseY/40;
-  while(actualValue==value & cellX>0){
-    cellX--;
+  while(actualValue==value & cellY>0){
+    cellY--;
     actualValue = mB[cellY][cellX];
     if(actualValue==value){
       counter++;
@@ -135,7 +136,7 @@ void check2048SQ(int mouseX,int mouseY){
       cellPositions[1].add(cellY);
     }
   }
-  if(counter>=3){
+  if(counter>=2){
     board.clearCells(cellPositions);
   }
 }

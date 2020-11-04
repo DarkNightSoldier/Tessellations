@@ -15,13 +15,12 @@ PImage img;
 boolean stateGame = false;
 
 
-public void settings(){
+void settings(){
    size(900,650);
 }
 
-public void setup(){
+void setup(){
   img = loadImage("background.jpg");
-  //board = new PolyhexBoard(14,13);
   setup2048SQ();
 }
 
