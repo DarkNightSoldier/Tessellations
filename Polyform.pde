@@ -1,5 +1,5 @@
 class Polyform{
-  public int cellX=5;
+  public int cellX=6;
   public int cellY;
   protected String configuration;
   public char[][] figureArray;

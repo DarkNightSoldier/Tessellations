@@ -1,11 +1,11 @@
 class Board{
-    protected String type;
     protected int nCellsX;
     protected int nCellsY;
     protected int score;
     protected byte[][] matrixBoard;
     protected Polyform figure;
     protected int maxRange;
+    protected boolean isDropping;
 
     public Board(int nCellsX, int nCellsY){
         this.nCellsX = nCellsX;
@@ -62,5 +62,15 @@ class Board{
     for(int pos = 0; pos<cellPositions[0].size(); pos++){
       matrixBoard[cellPositions[1].get(pos)][cellPositions[0].get(pos)]=0;
     }
+  }
+  
+  protected void addFigure(){
+    for(int i=0;i<figure.figureArray.length;i++){
+      for(int j=0;j<figure.figureArray.length;j++){
+        if(figure.figureArray[i][j]!='0'){
+          matrixBoard[i+figure.cellY][j+figure.cellX] = (byte) Character.getNumericValue(figure.figureArray[i][j]);
+        }
+      }
+    } 
   }
 }
