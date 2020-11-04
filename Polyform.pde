@@ -1,10 +1,10 @@
 class Polyform{
-  protected int cellX;
-  protected int cellY;
+  public int cellX=5;
+  public int cellY;
   protected String configuration;
   public char[][] figureArray;
-  protected char[][] previewArray;
-  protected boolean isDropping;
+  private String lastMovement;
+  private char[][] previewArray;
   
   //Builder method of the class Polyform
   public Polyform(String configuration){
@@ -28,14 +28,14 @@ class Polyform{
     ArrayList<Integer>[] posArray = new ArrayList[2];
     
     //Initializing
+    posArray[0] = new ArrayList<Integer>();
     posArray[1] = new ArrayList<Integer>();
-    posArray[2] = new ArrayList<Integer>();
     
     for(int i=0;i<figArray.length;i++){
       for(int j=0;j<figArray.length;j++){
         if(figArray[i][j]!='0'){
-          posArray[0].add(i+cellX);
-          posArray[1].add(j+cellY);
+          posArray[0].add(j+cellX);
+          posArray[1].add(i+cellY);
         }
       }
     }
@@ -43,9 +43,10 @@ class Polyform{
   }
   
   //Creates an preview array of the movement to verify availability
-  public ArrayList<Integer>[]previewMovement(String Type){
+  public ArrayList<Integer>[]previewMovement(String type){
     ArrayList<Integer>[] positions = new ArrayList[2];
-    switch(Type){
+    lastMovement = type;
+    switch(type){
       case "reflection":
         previewArray = reflect();
         positions = getPositionArray(cellX,cellY, previewArray);
@@ -55,15 +56,12 @@ class Polyform{
         positions = getPositionArray(cellX,cellY, previewArray);
         break;
       case "drop":
-        previewArray = figureArray;
         positions = getPositionArray(cellX,cellY+1, previewArray);
         break;
       case "left":
-        previewArray = figureArray;
         positions = getPositionArray(cellX-1,cellY, previewArray);
         break;
       case "right":
-        previewArray = figureArray;
         positions = getPositionArray(cellX+1,cellY, previewArray);
         break;
     }
@@ -72,7 +70,21 @@ class Polyform{
   
   //Apply the preview Array
   public void applyLastMovement(){
-     figureArray = previewArray;
+    switch(lastMovement){
+      case "reflection":
+      case "rotation":
+       figureArray = previewArray;
+       break;
+      case "drop":
+        cellY++;
+        break;
+      case "left":
+        cellX--;
+        break;
+      case "right":
+        cellX++;
+        break;
+    }
   }
   
   //Thanks to Inder_Verma @ Geeks for Geeks

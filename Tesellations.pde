@@ -1,4 +1,4 @@
-PolyhexBoard board;
+Board board;
 int y;
 int x=216;
 int type = 2;
@@ -11,6 +11,8 @@ int [][] T = {{},{15,4369,15,4369},
               {113,275,71,1604},
               {51,51,51,51},
               {114,610,39,562}};
+PImage img;
+boolean stateGame = false;
 
 
 public void settings(){
@@ -18,13 +20,25 @@ public void settings(){
 }
 
 public void setup(){
-   board = new PolyhexBoard(14,13);
-   frameRate(2);
+  img = loadImage("background.jpg");
+  //board = new PolyhexBoard(14,13);
+  setup2048SQ();
 }
 
+/**
 public void draw(){
   board.drawBoard();
-  y=y+40;
+  fill(255,0,0);
+  board.drawPolyhex();
+  noFill();
+  board.dropPolyhex();
+  if(keyPressed){
+      board.figureModify(keyCode);
+  }
+}*/
+
+public void draw(){
+  launch2048SQ();
 }
 
 void drawPolyhex(){
