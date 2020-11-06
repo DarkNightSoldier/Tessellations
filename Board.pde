@@ -73,4 +73,14 @@ class Board{
       }
     } 
   }
+  
+  public void dropFigure(){
+   if(verifyPositions(figure.previewMovement("drop"))){
+     figure.cellY++;
+   }else{
+     isDropping = false;
+     addFigure();
+     figure = new Polyform(""+(int) random(1,maxRange+1)+"00-"+(int) random(1,maxRange+1)+"00-"+(int) random(1,maxRange+1)+"00");
+   }
+ }
 }

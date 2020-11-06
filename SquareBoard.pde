@@ -8,16 +8,15 @@ class SquareBoard extends Board{
   }
   
    protected void drawGrid(){
-      fill(0);
-      for (int i = 0; i <=w ; i = i + 40){
-          line(i,0,i,h);
-      }
-      for (int j = 0; j <h ; j = j + 40){
-          line(0,j,w,j);
-      }
-      fill(255);
-      rect(0,0,w,h);
-      noFill();
+    fill(255);
+    rect(0,0,400,640);
+    noFill();
+    for (int i = 0; i <400 ; i = i + 40){
+        line(i,0,i,640);
+    }
+    for (int j = 0; j <640 ; j = j + 40){
+        line(0,j,400,j);
+    }
    }
    
    @Override
@@ -36,4 +35,19 @@ class SquareBoard extends Board{
      }
    }
   }
+  
+  public void drawPolyform(){
+    for(int row=0;row<figure.figureArray.length;row++){
+      for(int column=0;column<figure.figureArray.length;column++){
+        if(figure.figureArray[row][column]!='0'){
+            fill(colorList[Character.getNumericValue(figure.figureArray[row][column])]);
+              square(40*figure.cellX+column*40,figure.cellY*40+row*40,40);
+              fill(0);
+              textSize(18);
+              text((int)pow(2,Character.getNumericValue(figure.figureArray[row][column])),40*figure.cellX+column*40+20,figure.cellY*40+row*40+24);
+              noFill();
+            }
+        }
+      }
+    }
 }

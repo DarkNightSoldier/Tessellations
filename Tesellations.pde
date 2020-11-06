@@ -1,5 +1,6 @@
 Board board;
 PolyhexBoard board1;
+SquareBoard board2;
 int y;
 int x=216;
 int fs;
@@ -22,14 +23,16 @@ void settings(){
 }
 
 void setup(){
+  frameRate(6);
   img = loadImage("background.jpg");
   image(img, 0, 0);
   board1 = new PolyhexBoard(13,13);
+  //setupTetris();
   //setup2048SQ();
 }
 
 
-public void draw(){
+void draw(){
   frameRate(2);
   board1.drawBoard();
   board1.drawPolyhex();
@@ -40,5 +43,9 @@ public void draw(){
 }
 
 /*void draw(){
+  launchTetris();
+}*/
+
+/*void draw(){
   launch2048SQ();
-}**/
+}*/
