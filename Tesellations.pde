@@ -1,9 +1,6 @@
 Board board;
-PolyhexBoard board1;
-SquareBoard board2;
 int y;
 int x=216;
-int fs;
 int type = 2;
 int rotation = 2;
 color [] colorList = {#B9FFF0,#B9FFF0,#FFCA00,#A5FF00,#FF0D00,#6384FF,#F9FF35,#B279FF};
@@ -23,43 +20,44 @@ void settings(){
 }
 
 void setup(){
-<<<<<<< HEAD
-  frameRate(6);
-  img = loadImage("background.jpg");
-  image(img, 0, 0);
-  board1 = new PolyhexBoard(13,13);
-  //setupTetris();
-  //setup2048SQ();
-=======
   surface.setResizable(true);
   img = loadImage("background.jpg");
    setup2048SQ();
   mode = 0;
->>>>>>> 6df97ef008a06021fe31beca8cdad5906494d94e
 }
 
-
-void draw(){
-  frameRate(2);
-  board1.drawBoard();
-  board1.drawPolyhex();
-  board1.dropPolyhex();
+/**
+public void draw(){
+  board.drawBoard();
+  fill(255,0,0);
+  board.drawPolyhex();
+  noFill();
+  board.dropPolyhex();
   if(keyPressed){
-      board1.figureModify(keyCode);
+      board.figureModify(keyCode);
   }
-<<<<<<< HEAD
-=======
 }*/
 
 public void draw(){
    MainMenu();
->>>>>>> 6df97ef008a06021fe31beca8cdad5906494d94e
 }
 
-/*void draw(){
-  launchTetris();
-}*/
+void drawPolyhex(){
+  fill(colorList[2]);
+  hexagon(72,y,24);
+  hexagon(72,y+40,24);
+  hexagon(72,y+80,24);
+  fill(255);
+  textSize(20);
+  text("1",72+18,y+24);
+}
 
-/*void draw(){
-  launch2048SQ();
-}*/
+//Function to draw active tetromino figure
+void drawTetromino(){
+  fill(colorList[type]);
+  for(int i=0; i<=15;i++){ 
+    if((T[type][rotation] & (1<<15 - i)) != 0){
+      hexagon(x-(((15-i)%4)*48),y-((15-i)/4)*40,24);
+    }
+  }
+}
