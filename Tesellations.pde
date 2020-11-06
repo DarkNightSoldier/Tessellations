@@ -16,19 +16,26 @@ int [][] T = {{},{15,4369,15,4369},
               {114,610,39,562}};
 PImage img;
 boolean stateGame = false;
-
+int mode;
 
 void settings(){
-   size(900,650);
+  size(900,650);  
 }
 
 void setup(){
+<<<<<<< HEAD
   frameRate(6);
   img = loadImage("background.jpg");
   image(img, 0, 0);
   board1 = new PolyhexBoard(13,13);
   //setupTetris();
   //setup2048SQ();
+=======
+  surface.setResizable(true);
+  img = loadImage("background.jpg");
+   setup2048SQ();
+  mode = 0;
+>>>>>>> 6df97ef008a06021fe31beca8cdad5906494d94e
 }
 
 
@@ -40,6 +47,13 @@ void draw(){
   if(keyPressed){
       board1.figureModify(keyCode);
   }
+<<<<<<< HEAD
+=======
+}*/
+
+public void draw(){
+   MainMenu();
+>>>>>>> 6df97ef008a06021fe31beca8cdad5906494d94e
 }
 
 /*void draw(){
