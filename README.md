@@ -11,20 +11,22 @@
 **Versión:** 1
 
 ## Contenido
-1. [Introducción](#introducción)
-2. [Objetivo](#objetivo)
-3. [Estructura del programa](#cómo-jugar)
-   - [Clase Board]()
-   - [Clase Polyform]()
-  4.  [Creación y representación de una poliforma]()
-  5.  [Características principales del programa]()
-  6.  [Conclusiones]()
-  7.  [Implementaciones futuras]()
-  8.  [Referencias]()
+1. [Introducción](#1-introducción)
+2. [Objetivo](#2-objetivo)
+3. [Estructura del programa](#3-estructura-del-programa)
+   - [Clase Board](#31-clase-board)
+   - [Clase Polyform](#32-clase-polyform)
+  4.  [Creación y representación de una poliforma](#4-creación-y-representación-de-la-poliforma)
+  5.  [Características principales del proyecto](#5-caracteristicas-principales-del-proyecto)
+  6.  [Conclusiones](#6-conclusiones)
+  7.  [Implementaciones futuras](#7-implementaciones-futuras-y-limitaciones)
+  8.  [Referencias](#8-referencias)
    
 ## 1. Introducción
 
 Como segunda entrega para el curso de Programación Orientada a Objetos desarrollamos un conjunto de juegos de Tile Matching bajo el paradigma de programación orientada a objetos.
+
+Se espera que este proyecta sirva como base para crear aún muchos más tipos de juegos de tile matching que los presentados aquí.
 
 ## 2. Objetivo
 
@@ -63,12 +65,12 @@ Algunas de las funcionalidades incluidas en esta clase son:Algunas de las funcio
 ## 4. Creación y representación de la poliforma
 La creación de la poliforma se realiza con un String asociado a la matriz que representa la poliforma.
 
-**Ejemplo:** La cadena de texto "440-044-000" tiene las siguientes características:
+**Ejemplo:** La cadena de texto  ``` 440-044-000 ```  tiene las siguientes características:
 Su representación equivalente matricial es:
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/P2/matrix2.png" width="25%"></p>
 Sus posibles representaciones gráficas son:
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/P2/possiblepolyforms.png" width="100%"></p>
-## 5. Características principales del programa
+## 5. Características principales del proyecto
 - Las clases Board y Polyform sirven para la implementación de diversos juegos del género TileMatching, funcionan como la API del conjunto.
 - Creación visual intuitiva de la poliforma de acuerdo a lo mostrado en 4.
 - Muy pocas líneas de código si se necesitan hacer varios juegos con diversas poliformas y dinámicas.
@@ -82,10 +84,10 @@ Sus posibles representaciones gráficas son:
 - Los tableros pueden personalizarse en tamaño y ubicación donde se muestran, así incluso por ejemplo para hacer la previsualización de la siguiente figura del juego del Tetris se usa otro tablero.
 - Barra lateral con las variables asociadas al juego, totalmente personalizable.
 - Uso de arreglos mixtos (Areglos de ArrayList de enteros) y arreglos bidimensionales de enteros.
-- Movimiento de la figura mediante una previsualización **public ArrayList<Integer>[]previewMovement(String type)** y su verificación en el tablero con **protected boolean verifyPositions(ArrayList<Integer>[]positionArray)**.
-  - Uso de modificadores de accerso **protected**, para que algunos métodos solamente puedan ser ejecutados por la clase padre e hija.
-  
-  ## 6. Conclusiones
+- Movimiento de la figura mediante una previsualización con ```public ArrayList<Integer>[]previewMovement(String type) ```  y su verificación en el tablero con   ```protected boolean verifyPositions(ArrayList<Integer>[]positionArray)```.
+ - Uso de modificadores de acceso , para que algunos métodos solamente puedan ser ejecutados por la clase padre e hija.
+ 
+## 6.Conclusiones
 - El conjunto de juegos del género Tile Matching comparten una cantidad considerable de métodos y atributos, por ello es pertinente hacer una heriencia a la hora de hacer un conjunto de juegos de este tipo con el fin de evitar escribir más líneas de código.
 - La clases Polyform y Board, abstraen el concepto de poliforma como una figura que tiene una representación matricial cuadrada y una teselación. Lo cual permite, la coexistencia de distintos tipos de poliformas en un mismo ambiente de programación 
 
@@ -96,6 +98,7 @@ Sus posibles representaciones gráficas son:
 
  Limitaciones:
      - Implementación del movimiento de una poliforma con teselación compleja.
+     - Dado que está en Processing el JavaDoc no se muestra de forma interactiva.
 
 ## 8. Referencias
 
