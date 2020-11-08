@@ -71,6 +71,7 @@ void setUI(int xres, int yres) {
   text("Back", xres-70, yres-40);
   if (mouseButton == LEFT) {
     if ((mouseX >= xres-120) && (xres - mouseX >= 20) && (mouseY >= yres-75) && (yres - mouseY >= 25)) {
+      delay(100);
       mode = 0;
     }
   }
