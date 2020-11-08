@@ -1,5 +1,7 @@
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/banner-ing.svg" width="100%"></p>
+
 # Tessellations: Conjunto de juegos de tipo Tile-Matching con uso de poliformas
+
 **Autores:**  Raúl Mauricio Peña Losada y Alejandro Higuera Castro
 
 **Fecha de publicación:** 8 de octubre de 2020
