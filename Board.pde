@@ -54,8 +54,8 @@ abstract class Board {
   public void dropByColumn() {
     int temp;
     for (int col = 0; col<matrixBoard[0].length; col++) {
-      for (int row = nCellsY-1; row>0; row--) {
-        if (matrixBoard[row][col]==0) {
+      for (int row = nCellsY-1; row>1; row--) {
+        if((matrixBoard[row][col]==0)) {
           temp = matrixBoard[row-1][col];
           matrixBoard[row][col] = temp;
           matrixBoard[row-1][col] = 0;
@@ -141,7 +141,7 @@ abstract class Board {
       posX--;
       posY--;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -155,7 +155,7 @@ abstract class Board {
     while(actualValue==value & posY>0){
       posY--;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -170,7 +170,7 @@ abstract class Board {
       posX++;
       posY--;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -184,7 +184,7 @@ abstract class Board {
     while(actualValue==value & posX<nCellsX-1){
       posX++;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -199,7 +199,7 @@ abstract class Board {
       posY++;
       posX++;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -213,7 +213,7 @@ abstract class Board {
     while(actualValue==value & posY<nCellsY-1){
       posY++;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -228,7 +228,7 @@ abstract class Board {
       posY++;
       posX--;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -242,7 +242,7 @@ abstract class Board {
     while(actualValue==value & posX>0){
       posX--;
       actualValue = matrixBoard[posY][posX];
-      if(actualValue==value){
+      if(actualValue==value & value!=0){
         counter++;
         cellPositions[0].add(posX);
         cellPositions[1].add(posY);
@@ -282,7 +282,7 @@ abstract class Board {
   **/
   protected String labelFigure(String type,int value){
     String label="";
-    if(type=="2048"){
+    if(type=="2048" | type=="T2048"){
       label = ""+ (int) (pow(2,value));
     }
     return label;
@@ -308,7 +308,7 @@ abstract class Board {
         }
       }
     }
-  }
+ }
  
  /**
  * Method to setup a preview of the next active Polyform Figure
@@ -319,4 +319,5 @@ abstract class Board {
  * @param nCellsY: Number of cells in axis y
  **/
  public abstract void setupPreviewBoard(int xPos,int yPos,int size,int nCellsX,int nCellsY);
+
 }

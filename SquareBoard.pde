@@ -78,10 +78,11 @@ class SquareBoard extends Board{
   }
   
   public void executeIfNotDropping(){
+    ArrayList<Integer>[] posArray = figure.getPositionArray(figure.cellX,figure.cellY,figure.figureArray);
      if(label=="2048"){
-       for(int i=0;i<3;i++){
-         clearIdenticalAndApply(figure.cellX,figure.cellY+i,"2048",3);
-         delay(25);
+       for(int pos=0;pos<posArray[0].size();pos++){
+         clearIdenticalAndApply(posArray[0].get(pos),posArray[1].get(pos),"2048",3);
+         delay(15);
          dropByColumn();
        }
      }

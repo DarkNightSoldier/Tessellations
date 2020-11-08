@@ -20,13 +20,13 @@ void settings(){
 void setup(){
   img = loadImage("background.jpg");
   image(img, 0, 0);
-  setupTetrisClassic();
+  setupTetris2048();
 }
 
 void draw(){
   frameRate(frameRate);
   if(stateGame){
-    launchTetrisClassic();
+    launchTetris2048();
   }
 }
 
