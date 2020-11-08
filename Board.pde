@@ -250,6 +250,7 @@ abstract class Board {
     }
     if(counter>=minIdentical){
       clearCells(cellPositions);
+      score+=10*counter;
       applyIdentical(cellX,cellY,counter,value,type);
     }
   }
@@ -282,7 +283,7 @@ abstract class Board {
   **/
   protected String labelFigure(String type,int value){
     String label="";
-    if(type=="2048" | type=="T2048"){
+    if(type=="2048"){
       label = ""+ (int) (pow(2,value));
     }
     return label;

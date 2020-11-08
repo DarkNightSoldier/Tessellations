@@ -19,7 +19,6 @@ void launchTetrisClassic(){
   if(keyPressed){
     figureModifyTetris(keyCode);
   }
-  //setBarParams(board.score,linesAtTime,"");
 }
 
 void figureModifyTetris(int keyCode){
