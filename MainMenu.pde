@@ -19,8 +19,8 @@ void MainMenu() {
       if ((mouseX - 290 <= 325) && (290 - mouseX <= 0)) {
         if ((330 - mouseY <= 0)&&(mouseY - 330 <= 100)) {
           delay(500);
-          println(mode);
           mode = 1;
+          setup2048SQ();
         } else if ((480 - mouseY <= 0)&&(mouseY - 480 <= 100)) {
           mode = 2;
         }
