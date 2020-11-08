@@ -11,54 +11,17 @@ int[] scores = new int[3];
 PImage img;
 boolean stateGame = true;
 int mode;
-boolean alreadySetup = false;
 
 void settings(){
   size(640,640); 
 }
 
 void setup(){
-  img = loadImage("background.jpg");
-  image(img, 0, 0);
 }
 
 void draw(){
   frameRate(frameRate);
   if(stateGame){
-    launchTetrisClassic();
+    MainMenu();
   }
 }
-
-/** void draw(){
-  frameRate(frameRate);
-  if(!buttonClicked){
-   //MostrarMenú
-  }
-  else{
-    if(!alreadySetup){
-      switch(mode){
-        case 1:
-          setupTetrisClassic();
-          break;
-        case 2:
-          setup2048SQ();
-          break;
-        case 3:
-          setupHexLine2048();
-          break;
-      }else{
-       switch(mode){
-        case 1:
-          launchTetrisClassic();
-          break;
-        case 2:
-          launch2048SQ();
-          break;
-        case 3:
-          launch2048HexLine();
-          break;
-      }
-    }
-  }
-}
-**/
