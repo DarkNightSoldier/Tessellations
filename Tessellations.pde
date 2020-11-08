@@ -13,7 +13,7 @@ boolean stateGame = true;
 int mode;
 
 void settings(){
-  size(640,640); 
+  size(900, 650); 
 }
 
 void setup(){

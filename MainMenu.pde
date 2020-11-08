@@ -1,9 +1,10 @@
 void MainMenu() {
   loadBG();
   if (mode == 0) {
-    surface.setSize(900, 650);
+    surface.setSize(900,650);
     fill(255);
     textSize(72);
+    textAlign(LEFT);
     text("Tessellations", 250, 130);
     textSize(42);
     text("Select Mode", 330, 230);
@@ -42,16 +43,16 @@ void MainMenu() {
       }
     }
   } else if (mode == 1) {
-    surface.setSize(700, 650);
+    setUI(700,650);
     launchTetrisClassic();
   } else if (mode == 2) {
-    surface.setSize(600, 350);
+    setUI(600,350);
     launch2048SQ();
-  }else if(mode == 3) {
-    surface.setSize(450, 650);
+  } else if (mode == 3) {
+    setUI(600,650);
     launchHexLine2048();
   } else if (mode == 4) {
-    surface.setSize(520, 650);
+    setUI(620,650);
     launchTetris2048();
   }
 }
@@ -59,4 +60,18 @@ void MainMenu() {
 void loadBG() {
   img = loadImage("background.jpg");
   image(img, 0, 0);
+}
+
+void setUI(int xres, int yres) {
+  surface.setSize(xres, yres);
+  fill(204);
+  rect(xres-120, yres-75, 100, 50);
+  fill(0);
+  textSize(30);
+  text("Back", xres-70, yres-40);
+  if (mouseButton == LEFT) {
+    if ((mouseX >= xres-120) && (xres - mouseX >= 20) && (mouseY >= yres-75) && (yres - mouseY >= 25)) {
+      mode = 0;
+    }
+  }
 }
