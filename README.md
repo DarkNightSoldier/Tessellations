@@ -88,7 +88,7 @@ Sus posibles representaciones gráficas son:
 - Movimiento de la figura mediante una previsualización con ```public ArrayList<Integer>[]previewMovement(String type) ```  y su verificación en el tablero con   ```protected boolean verifyPositions(ArrayList<Integer>[]positionArray)```.
  - Uso de modificadores de acceso , para que algunos métodos solamente puedan ser ejecutados por la clase padre e hija.
  
-## 6.Conclusiones
+## 6. Conclusiones
 - El conjunto de juegos del género Tile Matching comparten una cantidad considerable de métodos y atributos, por ello es pertinente hacer una heriencia a la hora de hacer un conjunto de juegos de este tipo con el fin de evitar escribir más líneas de código.
 - La clases Polyform y Board, abstraen el concepto de poliforma como una figura que tiene una representación matricial cuadrada y una teselación. Lo cual permite, la coexistencia de distintos tipos de poliformas en un mismo ambiente de programación 
 
