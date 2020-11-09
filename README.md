@@ -8,6 +8,8 @@
 
 **Elaborado para:** 2016375-Programación Orientada a Objetos
 
+**Diapositivas disponibles aquí** [https://alejandrohiguera.codes/SlidesOOP](https://alejandrohiguera.codes/SlidesOOP)
+
 **Versión:** 1
 
 ## Contenido
