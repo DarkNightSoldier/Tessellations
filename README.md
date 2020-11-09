@@ -70,6 +70,7 @@ Su representación equivalente matricial es:
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/P2/matrix2.png" width="25%"></p>
 Sus posibles representaciones gráficas son:
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/P2/possiblepolyforms.png" width="100%"></p>
+
 ## 5. Características principales del proyecto
 - Las clases Board y Polyform sirven para la implementación de diversos juegos del género TileMatching, funcionan como la API del conjunto.
 - Creación visual intuitiva de la poliforma de acuerdo a lo mostrado en 4.
