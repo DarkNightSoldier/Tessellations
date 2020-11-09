@@ -59,7 +59,7 @@ Las funciones básicas para la implementación  de cualquier poliforma (Polystic
 Algunas de las funcionalidades incluidas en esta clase son:Algunas de las funcionalidades incluidas en esta clase son:
     - Previsualizar un movimiento de la poliforma (Caída, rotación, reflexión, desplazamiento e intercambio de celdas).
     - Obtener un arreglo con las posiciones de la poliforma en el tablero que se encuentra.
-    .- Generar una poliforma a partir de un cadena de texto que tiene una representación equivalente a una matrix bidimensional.
+    - Generar una poliforma a partir de un cadena de texto que tiene una representación equivalente a una matrix bidimensional.
     - Generar una matrix bidimensional asociada a la poliforma.
 
 ## 4. Creación y representación de la poliforma
