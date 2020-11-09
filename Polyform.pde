@@ -94,7 +94,7 @@ class Polyform{
        figureArray = previewArray;
        break;
       case "drop":
-        cellY++;
+        cellY = cellY+1;
         break;
       case "left":
         cellX--;

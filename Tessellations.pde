@@ -2,26 +2,28 @@ Board board;
 Board previewBoard;
 int y;
 int x=216;
+int w = 640,h=640;
 int type = 2;
 int rotation = 2;
-int frameRate = 16;
+int frameRate = 60;
 color [] colorList = {#B9FFF0,#B9FFF0,#FFCA00,#A5FF00,#FF0D00,#6384FF,#F9FF35,#B279FF};
-String[] infoScores = {"","","",""};
-int[] scores = new int[3];
 PImage img;
+PFont acme;
 boolean stateGame = true;
 int mode;
 
+
 void settings(){
-  size(900, 650); 
+  size(w,h); 
 }
 
 void setup(){
+  acme = createFont("Acme.ttf",50);
+  textFont(acme);
+  loadBG();
 }
 
 void draw(){
   frameRate(frameRate);
-  if(stateGame){
-    MainMenu();
-  }
+  mainMenu();
 }

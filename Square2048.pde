@@ -1,14 +1,14 @@
 int size = 80;
 void setup2048SQ(){
-  board = new SquareBoard(40,40,20,5,8,colorList,"2048");
+  board = new SquareBoard(0,0,size,5,8,colorList,"2048");
   board.randomFillBoard();
 }
 
 void launch2048SQ(){
+  frameRate = 60;
   board.drawBoard();
-  if(mousePressed){
+  if(mousePressed & mouseX<size*5){
     board.clearIdenticalAndApply(mouseX/size,mouseY/size,"2048",3);
-    delay(25);
     board.dropByColumn();
   }
   board.dropByColumn();

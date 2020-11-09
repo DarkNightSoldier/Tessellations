@@ -1,26 +1,26 @@
-void MainMenu() {
-  loadBG();
+void mainMenu() {
   if (mode == 0) {
-    surface.setSize(900,650);
+    loadBG();
     fill(255);
     textSize(72);
-    textAlign(LEFT);
-    text("Tessellations", 250, 130);
+    textAlign(CENTER);
+    text("Tessellations", w/2,100);
     textSize(42);
     text("Select Mode", 330, 230);
     fill(204);
-    rect(90, 330, 325, 100);
-    rect(90, 480, 325, 100);
-    rect(490, 330, 325, 100);
-    rect(490, 480, 325, 100);
+    textAlign(LEFT);
+    rect(50, 330, 250, 100);
+    rect(50, 480, 250, 100);
+    rect(350, 330, 250, 100);
+    rect(350, 480, 250, 100);
     fill(0);
-    textSize(38);
-    text("Classic tetris", 135, 390);
-    text("Classic 2048", 135, 540);
-    text("Hexagonal 2048", 505, 390);
-    text("Tetris 2048", 535, 540);
+    textSize(30);
+    text("Classic tetris", 80, 390);
+    text("Square 2048", 80, 540);
+    text("HexLine 2048", 380, 390);
+    text("Tetris 2048", 390, 540);
     if (mouseButton == LEFT) {
-      if ((mouseX - 90 <= 325) && (90 - mouseX <= 0)) {
+      if ((mouseX - 50 <= 250) && (50 - mouseX <= 0)) {
         if ((330 - mouseY <= 0)&&(mouseY - 330 <= 100)) {
           delay(500);
           setupTetrisClassic();
@@ -30,7 +30,7 @@ void MainMenu() {
           setup2048SQ();
           mode = 2;
         }
-      } else if ((mouseX - 490 <= 325) && (490 - mouseX <= 0)) {
+      } else if ((mouseX - 350 <= 325) && (350 - mouseX <= 0)) {
         if ((330 - mouseY <= 0)&&(mouseY - 330 <= 100)) {
           delay(500);
           setupHexLine2048();
@@ -42,18 +42,24 @@ void MainMenu() {
         }
       }
     }
-  } else if (mode == 1) {
-    setUI(700,650);
-    launchTetrisClassic();
-  } else if (mode == 2) {
-    setUI(600,350);
-    launch2048SQ();
-  } else if (mode == 3) {
-    setUI(600,650);
-    launchHexLine2048();
-  } else if (mode == 4) {
-    setUI(620,650);
-    launchTetris2048();
+  }else{
+    setUI(640,640);
+    if(stateGame){
+      loadBG();
+      if (mode == 1) {
+        launchTetrisClassic();
+        setUI(640,640);
+      }else if (mode == 2) {
+        launch2048SQ();
+        setUI(640,640);
+      }else if (mode == 3) {
+        launchHexLine2048();
+        setUI(640,640);
+      }else if (mode == 4) {
+        launchTetris2048();
+        setUI(640,640);
+      }
+    }
   }
 }
 

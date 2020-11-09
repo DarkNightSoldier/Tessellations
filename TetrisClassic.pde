@@ -1,18 +1,25 @@
 String [] T = {"1111-0000-0000-0000","2220-2000-0000-0000","033-330-000","440-044-000","555-005-000","66-66","777-070-000"};
-
+int lines;
 
 void setupTetrisClassic(){
   board = new SquareBoard(0,0,40,10,16,colorList,"TWithPreview");
   board.configurations = T;
-  board.setupPreviewBoard(440,40,30,4,2);
+  board.setupPreviewBoard(440,100,30,4,2);
   board.newFigure();
-  frameRate = 6;
+  frameRate = 8;
 }
 
 void launchTetrisClassic(){
   board.drawBoard();
   board.drawFigure();
   board.dropFigure();
+  fill(255);
+  textSize(40);
+  text("Next",450,60);
+  text("Score",450,200);
+  text(board.score,450,250);
+  text("Lines",450,300);
+  text(lines,450,350);
   board.previewBoard.drawBoard();
   verifyAndDropTetris();
   verifyStateGameTetris();
@@ -38,6 +45,11 @@ void figureModifyTetris(int keyCode){
          board.figure.applyLastMovement();
        }
        break;
+    case DOWN:
+      if(board.verifyPositions(board.figure.previewMovement("drop"))){
+         board.figure.applyLastMovement();
+       }
+       break;
    }
 }
 
@@ -58,6 +70,7 @@ void verifyAndDropTetris(){
      linesAtTime++;
    }
   }
+  lines += linesAtTime;
 }
 
 void verifyStateGameTetris(){
