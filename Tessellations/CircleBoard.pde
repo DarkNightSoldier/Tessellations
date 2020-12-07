@@ -20,8 +20,8 @@ class CircleBoard extends Board{
     rect(x,y,w,h);
     noFill();
     stroke(255);
-    for (int i = y; i <h ; i = i + size){
-      for(int j = x; j <w ; j = j + size){
+    for (int i = y; i <y+h ; i = i + size){
+      for(int j = x; j <x+w ; j = j + size){
         ellipseMode(CENTER);
         ellipse(j+size/2,i+size/2,size,size);
       }
@@ -107,23 +107,13 @@ class CircleBoard extends Board{
       super.clearIdenticalAndApply(cellX,cellY,type,minIdentical);
     }if(type=="same"){
       if(checkNeighbors(cellX, cellY)){
-        recursivelyDeleting(cellX,cellY,0);
+        int nCells = recursivelyDeleting(cellX,cellY,0);
+        for(int i=0;i<nCells;i++){
+          dropAndMoveBoard();
+        }
+        score+=pow(nCells-1,2);
       }
     }
-  }
-  
-  public boolean checkNeighbors(int cellX,int cellY){
-  if((matrixBoard[cellY][cellX]!=0)&&(
-    ((cellX != 0) && (matrixBoard[cellY][cellX-1] == matrixBoard[cellY][cellX])) || 
-    ((cellX+1 != nCellsX) && (matrixBoard[cellY][cellX+1] == matrixBoard[cellY][cellX])) || 
-    ((cellY>=1) && (matrixBoard[cellY-1][cellX] == matrixBoard[cellY][cellX])) || 
-    ((cellY<nCellsY-1) && (matrixBoard[cellY+1][cellX] == matrixBoard[cellY][cellX]))
-    )) {
-    println("Hello"+frameRate);
-    return true;
-  } else {
-    return false;
-  }
   }
   
   int recursivelyDeleting(int cellX,int cellY, int countingDeleted){
@@ -165,6 +155,38 @@ class CircleBoard extends Board{
   }
   
   void dropAndMoveBoard(){
-    
+    //Drop Columns
+    for(int cellY=0;cellY<nCellsY;cellY++){
+      for(int cellX=0;cellX<nCellsX;cellX++){
+        if(matrixBoard[cellY][cellX]==0 & cellY>=1){
+          matrixBoard[cellY][cellX] = matrixBoard[cellY-1][cellX];
+          matrixBoard[cellY-1][cellX] = 0;
+        }
+      }
+    }
+   
+   //Move columns from right to left
+   for(int col=0;col<nCellsX;col++){
+     boolean isEmpty = true;
+     int pos = 0;
+     while(isEmpty && pos<nCellsY){
+       if(matrixBoard[pos][col]!=0){
+         isEmpty = false;
+       }
+       pos++;
+     }
+     //If column is empty we'll move to left
+     if(isEmpty){
+       for(int cellY=0;cellY<nCellsY;cellY++){
+        for(int cellX=col;cellX<nCellsX;cellX++){
+          if(cellX!=nCellsX-1){
+             matrixBoard[cellY][cellX] = matrixBoard[cellY][cellX+1];
+          }else{
+            matrixBoard[cellY][cellX] = 0;
+          }
+        }
+      }
+     }
+   }
   }
 }

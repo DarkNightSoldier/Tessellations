@@ -329,6 +329,19 @@ abstract class Board {
     }
  }
  
+ public boolean checkNeighbors(int cellX,int cellY){
+  if((matrixBoard[cellY][cellX]!=0)&&(
+    ((cellX != 0) && (matrixBoard[cellY][cellX-1] == matrixBoard[cellY][cellX])) || 
+    ((cellX+1 != nCellsX) && (matrixBoard[cellY][cellX+1] == matrixBoard[cellY][cellX])) || 
+    ((cellY>=1) && (matrixBoard[cellY-1][cellX] == matrixBoard[cellY][cellX])) || 
+    ((cellY<nCellsY-1) && (matrixBoard[cellY+1][cellX] == matrixBoard[cellY][cellX]))
+    )) {
+    return true;
+  } else {
+    return false;
+  }
+  }
+  
  /**
  * Method to setup a preview of the next active Polyform Figure
  * @param xPos: x-coordinate of the board

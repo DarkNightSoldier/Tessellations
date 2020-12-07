@@ -80,7 +80,6 @@ void verifyStateGameSpaceTris(){
 }
  
 int getShipPos(){
-  int xPos=0;
   if(mouseX>320){
    return 320;
   }else{
