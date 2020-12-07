@@ -1,7 +1,7 @@
-class SquareBoard extends Board{
+class CircleBoard extends Board{
   public String label;
   
-  public SquareBoard(int x, int y, int size,int nCellsX, int nCellsY,color[] colorList,String label){
+  public CircleBoard(int x, int y, int size,int nCellsX, int nCellsY,color[] colorList,String label){
     this.nCellsX = nCellsX;
     this.nCellsY = nCellsY;
     this.x = x;

@@ -1,3 +1,4 @@
+//Function to draw hexagons
 void hexagon(int x, int y, int radius){
         float sx=x+cos(5*PI/3)*radius;
         float sy=y;

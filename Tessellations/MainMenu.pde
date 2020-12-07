@@ -58,6 +58,8 @@ void mainMenu() {
       }else if (mode == 4) {
         launchTetris2048();
         setUI(640,640);
+      }else if (mode==5){
+        launchSpaceTris();
       }
     }
   }

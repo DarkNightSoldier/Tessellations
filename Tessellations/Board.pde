@@ -109,6 +109,22 @@ abstract class Board {
   }
   
   /**
+  * Method to control the rise of the active Polyform figure
+  **/
+  public void upFigure() {
+    if (verifyPositions(figure.previewMovement("up"))) {
+      figure.cellY--;
+    }else {
+       if(figure.cellY<nCellsY-1){
+         addFigure();
+       }else{
+         stateGame = false;
+       }
+       executeIfNotDropping(); 
+    }
+  }
+  
+  /**
   * Abstract method to execute actions when the active Tetromino figure isn't falling
   **/
   public abstract void executeIfNotDropping();
@@ -285,6 +301,8 @@ abstract class Board {
     String label="";
     if(type=="2048"){
       label = ""+ (int) (pow(2,value));
+    }if(type=="colorpic"){
+      label = ""+ value;
     }
     return label;
   }

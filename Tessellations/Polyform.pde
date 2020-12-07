@@ -80,6 +80,9 @@ class Polyform{
       case "right":
         positions = getPositionArray(cellX+1,cellY, previewArray);
         break;
+      case "up":
+        positions = getPositionArray(cellX,cellY-1, previewArray);
+        break;
     }
     return positions;
   }
