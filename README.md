@@ -98,7 +98,6 @@ Sus posibles representaciones gráficas son:
 
 ## 7. Implementaciones futuras y limitaciones
 - Implementación con otros tipos de poliformas (Polidiamantes, polydrafter, poliábolo, policubo, poliominoide).
-- Juegos del tipo bubble shooter, donde la poliforma va hacia arriba y no hacia abajo.
 - Juegos del tipo Tile Matching con funciones como bloqueo de celda, celdas bonus, entre otros.
 
  Limitaciones:
