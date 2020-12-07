@@ -10,7 +10,7 @@
 
 **Diapositivas disponibles aquí** [https://alejandrohiguera.codes/SlidesOOP](https://alejandrohiguera.codes/SlidesOOP)
 
-**Versión:** 1
+**Versión:** 2
 
 ## Contenido
 1. [Introducción](#1-introducción)
@@ -36,7 +36,7 @@ Se espera que este proyecta sirva como base para crear aún muchos más tipos de
 
 ## 3. Estructura del programa
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/P2/UML.png" width="100%"></p>
-El programa se compone de 4 clases: Polyform, Board, HexagonalBoard y SquareBoard.
+El programa se compone de 5 clases: Polyform, Board, HexagonalBoard,SquareBoard y CircleBoard.
 
 La clase Polyform se encuentra contenida en la definición de la clase Board, y de esta clase derivan las clases hijas HexagonalBoard y SquareBoard.
 
