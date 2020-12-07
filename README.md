@@ -26,7 +26,7 @@
    
 ## 1. Introducción
 
-Como segunda entrega para el curso de Programación Orientada a Objetos desarrollamos un conjunto de juegos de Tile Matching bajo el paradigma de programación orientada a objetos.
+Como segunda y tercera entrega para el curso de Programación Orientada a Objetos desarrollamos un conjunto de juegos de Tile Matching bajo el paradigma de programación orientada a objetos.
 
 Se espera que este proyecta sirva como base para crear aún muchos más tipos de juegos de tile matching que los presentados aquí.
 
