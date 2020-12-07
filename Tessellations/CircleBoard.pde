@@ -20,13 +20,11 @@ class CircleBoard extends Board{
     rect(x,y,w,h);
     noFill();
     stroke(255);
-    //Vertical lines
-    for (int i = 0; i <w ; i = i + size){
-        line(x+i,y,x+i,y+h);
-    }
-    //Horizontal lines
-    for (int j = 0; j <h ; j = j + size){
-        line(x,y+j,x+w,y+j);
+    for (int i = y; i <h ; i = i + size){
+      for(int j = x; j <w ; j = j + size){
+        ellipseMode(CENTER);
+        ellipse(j+size/2,i+size/2,size,size);
+      }
     }
    }
    
@@ -36,7 +34,8 @@ class CircleBoard extends Board{
       for (int col = 0; col < matrixBoard[row].length;col++){
        if(matrixBoard[row][col]!=0){
          fill(colorList[matrixBoard[row][col]%colorList.length]);
-         square(x+col*size,y+row*size,size);
+         ellipseMode(CENTER);
+         ellipse(x+col*size+size/2,y+row*size+size/2,size,size);
          fill(0);
          textSize(16);
          textAlign(CENTER);
@@ -51,7 +50,8 @@ class CircleBoard extends Board{
       for(int column=0;column<figure.figureArray[0].length;column++){
         if(figure.figureArray[row][column]!=0){
             fill(colorList[figure.figureArray[row][column]]);
-              square(x+size*figure.cellX+column*size,y+figure.cellY*size+row*size,size);
+              ellipseMode(CENTER);
+              ellipse(x+size*figure.cellX+column*size+size/2,y+figure.cellY*size+row*size+size/2,size,size);
               fill(0);
               textSize(16);
               textAlign(CENTER);
@@ -96,8 +96,75 @@ class CircleBoard extends Board{
   }
   
   public void setupPreviewBoard(int xPos,int yPos,int size,int nCellsX,int nCellsY){
-    previewBoard = new SquareBoard(xPos,yPos,size,nCellsX,nCellsY,colorList,"none");
+    previewBoard = new CircleBoard(xPos,yPos,size,nCellsX,nCellsY,colorList,"none");
     previewBoard.configurations = configurations;
     previewBoard.newFigure();
+  }
+  
+  @Override
+  public void clearIdenticalAndApply(int cellX,int cellY, String type, int minIdentical){
+    if(type!="same"){
+      super.clearIdenticalAndApply(cellX,cellY,type,minIdentical);
+    }if(type=="same"){
+      if(checkNeighbors(cellX, cellY)){
+        recursivelyDeleting(cellX,cellY,0);
+      }
+    }
+  }
+  
+  public boolean checkNeighbors(int cellX,int cellY){
+  if((matrixBoard[cellY][cellX]!=0)&&(
+    ((cellX != 0) && (matrixBoard[cellY][cellX-1] == matrixBoard[cellY][cellX])) || 
+    ((cellX+1 != nCellsX) && (matrixBoard[cellY][cellX+1] == matrixBoard[cellY][cellX])) || 
+    ((cellY>=1) && (matrixBoard[cellY-1][cellX] == matrixBoard[cellY][cellX])) || 
+    ((cellY<nCellsY-1) && (matrixBoard[cellY+1][cellX] == matrixBoard[cellY][cellX]))
+    )) {
+    println("Hello"+frameRate);
+    return true;
+  } else {
+    return false;
+  }
+  }
+  
+  int recursivelyDeleting(int cellX,int cellY, int countingDeleted){
+    int actualValue = matrixBoard[cellY][cellX];
+    
+     //Clear the cell
+     matrixBoard[cellY][cellX] = 0;
+     countingDeleted++;
+     
+     //Check left
+     if(cellX!=0){
+       if(matrixBoard[cellY][cellX-1]==actualValue){
+        countingDeleted += recursivelyDeleting(cellX-1,cellY,countingDeleted);
+       }
+     }
+     
+     //Check right
+     if(cellX+1!=nCellsX){
+       if(matrixBoard[cellY][cellX+1]==actualValue){
+         countingDeleted += recursivelyDeleting(cellX+1,cellY,countingDeleted);
+       }
+     }
+     
+     //Check up
+     if(cellY>=1){
+       if(matrixBoard[cellY-1][cellX]==actualValue){
+         countingDeleted += recursivelyDeleting(cellX,cellY-1,countingDeleted);
+       }
+     }
+     
+     //Check down
+     if(cellY<nCellsY-1){
+       if(matrixBoard[cellY+1][cellX]==actualValue){
+         countingDeleted += recursivelyDeleting(cellX,cellY+1,countingDeleted);
+       }
+     }
+
+   return countingDeleted;
+  }
+  
+  void dropAndMoveBoard(){
+    
   }
 }

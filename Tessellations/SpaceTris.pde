@@ -4,7 +4,7 @@ int xShip;
 void setupSpaceTris(){
   ship = loadShape("ship.svg");
   ship.scale(0.2);
-  board = new SquareBoard(0,0,40,10,14,colorList,"sTris");
+  board = new CircleBoard(0,0,40,10,14,colorList,"sTris");
   board.configurations = T;
   board.setupPreviewBoard(440,100,30,4,2);
   board.newFigure();
