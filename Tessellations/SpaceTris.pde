@@ -15,6 +15,7 @@ void launchSpaceTris(){
   board.drawBoard();
   board.previewBoard.drawBoard();
   board.drawFigure();
+  setUIaux(640, 640);
   xShip = getShipPos();
   translate(xShip-40,530);
   shape(ship);

@@ -80,6 +80,8 @@ void mainMenu() {
         setUI(640, 640);
       } else if (mode == 4) {
         launchSpaceTris();
+        fill(255);
+        rect(500, 600, 140, 50);
         setUIaux(640, 640);
       } else if (mode==5) {
         launchTetris2048();
@@ -117,7 +119,7 @@ void setUI(int xres, int yres) {
 
 void setUIaux(int xres, int yres) {
   fill(204);
-  rect(500, 600, 140, 50);
+  rect(xres-130, yres-75, 120, 50);
   fill(0);
   textSize(30);
   text("Back", xres-70, yres-40);
