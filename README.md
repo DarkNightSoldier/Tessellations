@@ -6,6 +6,8 @@
 
 **Fecha de publicación:** 8 de octubre de 2020
 
+**Fecha de modificación:** 7 de diciembre de 2020
+
 **Elaborado para:** 2016375-Programación Orientada a Objetos
 
 **Diapositivas disponibles aquí** [https://alejandrohiguera.codes/SlidesOOP](https://alejandrohiguera.codes/SlidesOOP)
