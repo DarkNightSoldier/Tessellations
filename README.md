@@ -105,18 +105,19 @@ Sus posibles representaciones gráficas son:
 
 - Implementación de juegos que usen PShapes de manera amplia, siguiendo el camino del TileMatching.
 
- Limitaciones:
-     - Implementación del movimiento de una poliforma con teselación compleja.
+ #### Limitaciones
+ 
+ - Implementación del movimiento de una poliforma con teselación compleja.
      
-     - Dado que está en Processing el JavaDoc no se muestra de forma interactiva.
+ - Dado que está en Processing el JavaDoc no se muestra de forma interactiva.
      
-     - El SameGame requiere un frameRate superior a 70 fps dada la cantidad de operaciones que se ejecutan para la verificación de las celdas y la recursión que se usa.
+- El SameGame requiere un frameRate superior a 70 fps dada la cantidad de operaciones que se ejecutan para la verificación de las celdas y la recursión que se usa.
      
-      - Dada la recursión que se usa no sería posible cambiar el tamaño del tablero a uno muy amplio para el SameGame, pues arrojaría error de Recursión (Este error ya fue       probado).
+ - Dada la recursión que se usa no sería posible cambiar el tamaño del tablero a uno muy amplio para el SameGame, pues arrojaría error de Recursión (Este error ya fue       probado).
       
-      - En el SpaceTris no resulta igual de fácil para el jugador completar una línea.
+- En el SpaceTris no resulta igual de fácil para el jugador completar una línea.
       
-      - Se probó la libreria de Sage pero no podía ser instalada con el manejador de paquetes de Python (PIP), debía ser instalada directamente en el equipo. Adicionalmente se probó con algunos tetrominos de prueba y no arrojó resultado para teselaciones posibles.
+- Se probó la libreria de Sage pero no podía ser instalada con el manejador de paquetes de Python (PIP), debía ser instalada directamente en el equipo. Adicionalmente se probó con algunos tetrominos de prueba y no arrojó resultado para teselaciones posibles.
 
 ## 8. Referencias
 
