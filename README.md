@@ -94,11 +94,16 @@ Sus posibles representaciones gráficas son:
  
 ## 6. Conclusiones
 - El conjunto de juegos del género Tile Matching comparten una cantidad considerable de métodos y atributos, por ello es pertinente hacer una heriencia a la hora de hacer un conjunto de juegos de este tipo con el fin de evitar escribir más líneas de código.
-- La clases Polyform y Board, abstraen el concepto de poliforma como una figura que tiene una representación matricial cuadrada y una teselación. Lo cual permite, la coexistencia de distintos tipos de poliformas en un mismo ambiente de programación 
+- La clases Polyform y Board, abstraen el concepto de poliforma como una figura que tiene una representación matricial cuadrada y una teselación. Lo cual permite, la coexistencia de distintos tipos de poliformas en un mismo ambiente de programación.
+- A grandes rasgos gran parte de la estructura del proyecto se conserva respecto a la versión 1, en concordancia con el objetivo del proyecto de proveer un fácil y rápido despliegue para el desarrollo simultáneo de múltiples juegos de Tile Matching.
+- La implementación de un algoritmo recursivo para la revisión de bloques vecinos fue prudente, dado que el tamaño del tablero no es amplio y la función resulta más corta de implementar que con un algoritmo iterativo como se pensó en primer momento, esto tomando como referencia la función para el *2048* que ya se había implementado, pero chequea vecinos en todas las direcciones.
 
 ## 7. Implementaciones futuras y limitaciones
 - Implementación con otros tipos de poliformas (Polidiamantes, polydrafter, poliábolo, policubo, poliominoide).
+
 - Juegos del tipo Tile Matching con funciones como bloqueo de celda, celdas bonus, entre otros.
+
+- Implementación de juegos que usen PShapes de manera amplia, siguiendo el camino del TileMatching.
 
  Limitaciones:
      - Implementación del movimiento de una poliforma con teselación compleja.
