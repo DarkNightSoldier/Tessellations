@@ -1,3 +1,5 @@
+import processing.sound.*;
+SoundFile file;
 Board board;
 Board previewBoard;
 int y;
@@ -21,6 +23,8 @@ void setup(){
   acme = createFont("Acme.ttf",50);
   textFont(acme);
   loadBG();
+  file = new SoundFile(this, "background.mp3");
+  file.play();
 }
 
 void draw(){
