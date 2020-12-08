@@ -1,6 +1,6 @@
 void mainMenu() {
   if (mode == 0) {
-    loadBG();
+    loadMM();
     fill(255);
     textSize(72);
     textAlign(CENTER);
@@ -27,48 +27,40 @@ void mainMenu() {
     textSize(25);
     text("Scoreboard", 255, 575);
     if (mouseButton == LEFT) {
-      if ((245 <= mouseY ) && (mouseY - 245<= 75)) {
-        if ((100 <= mouseX)&&(mouseX -100 <= 200)) {
-          delay(500);
-          setup2048SQ();
-          mode = 1;
-        } else if ((310 <= mouseX)&&(mouseX -310 <= 200)) {
-          delay(500);
-          setupHexLine2048();
-          mode = 2;
-        }
-      } else if ((330 <= mouseY ) && (mouseY - 330<= 75)) {
-        if ((20 <= mouseX)&&(mouseX -20 <= 185)) {
-          delay(500);
-          setupTetrisClassic();
-          mode = 3;
-        } else if ((215 <= mouseX)&&(mouseX -215 <= 190)) {
-          delay(500);
-          setupSpaceTris();
-          mode = 4;
-        } else if ((415 <= mouseX)&&(mouseX -415 <= 190)) {
-          delay(500);
-          setupTetris2048();
-          mode = 5;
-        }
-      } else if ((415 <= mouseY ) && (mouseY - 415<= 75)) {
-        if ((210 <= mouseX)&&(mouseX -210 <= 200)) {
-          delay(500);
-          setupSame();
-          mode = 6;
-        }
-      } else if ((540 <= mouseY ) && (mouseY - 540<= 45)) {
-        if ((235 <= mouseX)&&(mouseX -235 <= 150)) {
-          delay(500);
-          //Poner aquí el setup de la tabla de puntuaciones (Si es necesario, de lo contrario, borrar esta linea)
-          mode = 7;
-        }
+      if (CheckInside(mouseX, mouseY, 100, 245, 200, 75)) {
+        delay(500);
+        setup2048SQ();
+        mode = 1;
+      } else if (CheckInside(mouseX, mouseY, 310, 245, 200, 75)) {
+        delay(500);
+        setupHexLine2048();
+        mode = 2;
+      } else if (CheckInside(mouseX, mouseY, 20, 330, 185, 75)) {
+        delay(500);
+        setupTetrisClassic();
+        mode = 3;
+      } else if (CheckInside(mouseX, mouseY, 215, 330, 190, 75)) {
+        delay(500);
+        setupSpaceTris();
+        mode = 4;
+      } else if (CheckInside(mouseX, mouseY, 415, 330, 190, 75)) {
+        delay(500);
+        setupTetris2048();
+        mode = 5;
+      } else if (CheckInside(mouseX, mouseY, 210, 415, 200, 75)) {
+        delay(500);
+        setupSame();
+        mode = 6;
+      } else if (CheckInside(mouseX, mouseY, 235, 540, 150, 55)) {
+        delay(500);
+        //Poner aquí el setup de la tabla de puntuaciones (Si es necesario, de lo contrario, borrar esta linea)
+        mode = 7;
       }
     }
   } else {
     setUI(640, 640);
     if (stateGame) {
-      loadBG();
+      loadMM();
       if (mode == 1) {
         launch2048SQ();
         setUI(640, 640);
@@ -97,9 +89,16 @@ void mainMenu() {
   }
 }
 
-void loadBG() {
+void loadMM() {
   img = loadImage("background.jpg");
   image(img, 0, 0);
+    if (file.isPlaying()) {
+    mutebutton = loadImage("unmute.png");
+    image(mutebutton, 550, 10, 50, 50);
+  } else {
+    mutebutton = loadImage("mute.png");
+    image(mutebutton, 550, 10, 50, 50);
+  }
 }
 
 void setUI(int xres, int yres) {
@@ -110,7 +109,7 @@ void setUI(int xres, int yres) {
   textSize(30);
   text("Back", xres-70, yres-40);
   if (mouseButton == LEFT) {
-    if ((mouseX >= xres-130) && (xres - mouseX >= 10) && (mouseY >= yres-75) && (yres - mouseY >= 25)) {
+    if (CheckInside(mouseX, mouseY, xres-130, yres-75, 120, 50)) {
       delay(100);
       mode = 0;
     }
@@ -124,9 +123,29 @@ void setUIaux(int xres, int yres) {
   textSize(30);
   text("Back", xres-70, yres-40);
   if (mouseButton == LEFT) {
-    if ((mouseX >= xres-120) && (xres - mouseX >= 20) && (mouseY >= yres-75) && (yres - mouseY >= 25)) {
+    if (CheckInside(mouseX, mouseY, xres-130, yres-75, 120, 50)) {
       delay(100);
       mode = 0;
+    }
+  }
+}
+
+//Check if a pont (px,py) is inside a rectangle
+//CornerX,CornerY (top left corner) and WiDHT and HeiGHT
+boolean CheckInside(float px, float py, float cx, float cy, float whdt, float hght) {
+  if ((cx <= px) && (px <= cx + whdt) && (cy <= py ) && (py<= cy + hght)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    if (CheckInside(mouseX, mouseY, 550, 10, 50, 50) && file.isPlaying()) {
+      file.pause();
+    } else if (CheckInside(mouseX, mouseY, 550, 10, 50, 50) && !file.isPlaying()) {
+      file.play();
     }
   }
 }
