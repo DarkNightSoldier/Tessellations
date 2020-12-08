@@ -13,6 +13,7 @@ void setupSpaceTris(){
 
 void launchSpaceTris(){
   board.drawBoard();
+  DisplayScore(450,200);
   board.previewBoard.drawBoard();
   board.drawFigure();
   setUIaux(640, 640);

@@ -53,7 +53,6 @@ void mainMenu() {
         mode = 6;
       } else if (CheckInside(mouseX, mouseY, 235, 540, 150, 55)) {
         delay(500);
-        //Poner aquí el setup de la tabla de puntuaciones (Si es necesario, de lo contrario, borrar esta linea)
         mode = 7;
       }
     }
@@ -82,8 +81,7 @@ void mainMenu() {
         launchSame();
         setUI(640, 640);
       } else if (mode==7) {
-        //Funcion launch del scoreboard
-        setUI(640, 640);
+        launchScoreBoard();
       }
     }
   }
@@ -92,7 +90,7 @@ void mainMenu() {
 void loadMM() {
   img = loadImage("background.jpg");
   image(img, 0, 0);
-    if (file.isPlaying()) {
+  if (file.isPlaying()) {
     mutebutton = loadImage("unmute.png");
     image(mutebutton, 550, 10, 50, 50);
   } else {
@@ -110,6 +108,9 @@ void setUI(int xres, int yres) {
   text("Back", xres-70, yres-40);
   if (mouseButton == LEFT) {
     if (CheckInside(mouseX, mouseY, xres-130, yres-75, 120, 50)) {
+      if (mode != 7) {
+      highscores[mode-1] = board.score;
+      }
       delay(100);
       mode = 0;
     }
@@ -124,6 +125,9 @@ void setUIaux(int xres, int yres) {
   text("Back", xres-70, yres-40);
   if (mouseButton == LEFT) {
     if (CheckInside(mouseX, mouseY, xres-130, yres-75, 120, 50)) {
+      if (mode != 7) {
+      highscores[mode-1] = board.score;
+      }
       delay(100);
       mode = 0;
     }
@@ -138,6 +142,13 @@ boolean CheckInside(float px, float py, float cx, float cy, float whdt, float hg
   } else {
     return false;
   }
+}
+
+void DisplayScore(int xpos,int ypos) {
+  fill(255);
+  textSize(40);
+  text("Score", xpos, ypos);
+  text(board.score, xpos, ypos + 50);
 }
 
 void mousePressed() {

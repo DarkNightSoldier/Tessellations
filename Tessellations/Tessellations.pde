@@ -13,6 +13,7 @@ PImage img, mutebutton, unmutebutton;
 PFont acme;
 boolean stateGame = true;
 int mode;
+int[] highscores = {0,0,0,0,0,0};
 
 
 void settings() {
