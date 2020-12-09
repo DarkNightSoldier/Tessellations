@@ -9,10 +9,7 @@ void launchSame(){
     board.clearIdenticalAndApply(mouseX/40,mouseY/40,"same",2);
   }
   board.drawBoard();
-  fill(255);
-  textSize(40);
-  text("Score",450,200);
-  text(board.score,450,250);
+  DisplayScore(450,200);
 }
 
 void checkGameOver(){

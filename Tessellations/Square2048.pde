@@ -7,6 +7,7 @@ void setup2048SQ(){
 void launch2048SQ(){
   frameRate = 60;
   board.drawBoard();
+  DisplayScore(450,200);
   if(mousePressed & mouseX<size*5){
     board.clearIdenticalAndApply(mouseX/size,mouseY/size,"2048",3);
     board.dropByColumn();

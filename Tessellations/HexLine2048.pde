@@ -9,6 +9,7 @@ void setupHexLine2048(){
 
 void launchHexLine2048(){
   board.drawBoard();
+  DisplayScore(500,200);
   board.drawFigure();
   board.dropFigure(); 
   if(keyPressed){
